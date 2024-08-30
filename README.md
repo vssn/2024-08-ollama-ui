@@ -1,8 +1,48 @@
-# React + Vite
+# 2024-08-ollama-ui
+Simple UI that is able to communicate with a same-host ollama
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirements
+- Ollama
+- Running in a container, eg, docker or kubernetes
 
-Currently, two official plugins are available:
+## Base functionality
+When run in the console, the following snippet should be able to request ollama:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+async function getData(prompt) {
+  const decoder = new TextDecoder('utf-8');
+  document.body.innerText = '';
+
+  try {
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama3.1',
+        prompt
+      })
+    });
+      
+    const reader = response.body.getReader();
+      
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) {
+          return;
+        }
+
+        const text = JSON.parse(decoder.decode(value)).response;
+        document.body.innerText = 
+        `${document.body.innerText}${text}`
+      }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+getData("Mein Name ist Huibu, kannst du dir das für die nächste Frage merken?")
+
+
+```
