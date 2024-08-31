@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgba(5, 6, 18, 0.849);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,6 +41,15 @@ body {
   margin-bottom: 1em;
 }
 
+.prompt-output {
+  outline: 2px solid rgba(23, 131, 209, 0.3);
+  background: rgba(23, 131, 209, 0.1);
+  border-radius: 4px;
+  padding: 0.2em 0.2em;
+  margin-right: 0.5em;
+  margin-left: -0.2em;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -53,15 +62,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(10, 92, 150, 0.849);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 input {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: 2px solid rgba(113, 131, 145, 0.364);
+  padding: 0.6em 0.6em;
   font-size: 1em;
   font-family: inherit;
   transition: border-color 0.25s;

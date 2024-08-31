@@ -7,7 +7,7 @@ const Chat = () => {
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
-        // setMessages((prevMessages) => [...prevMessages, newMessage]);
+        setMessages((prevMessages) => [...prevMessages, <span className='prompt-output'>{newMessage}</span>]);
         getData(newMessage);
         setNewMessage('');
     };
