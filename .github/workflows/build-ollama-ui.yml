@@ -1,0 +1,36 @@
+name: Docker Image CI for Ollama UI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+      - ./
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - ./
+
+jobs:
+
+  buildAndPublish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+        
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install node dependencies
+        run: npm install
+      - name: Build application
+        run: npm run build
+      # - name: Build the Docker image
+      #   run: npm run build:image
+      # - name: Login to ghcr Container Registry
+      #  uses: docker/login-action@v3
+      #  with:
+      #    registry: ghcr.io
+      #    username: omitted
+      #    password: ${{ secrets.omitted }}
+      # - name: Publish to Container Registry
+      #   run: npm run publish:image
