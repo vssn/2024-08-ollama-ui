@@ -2,13 +2,10 @@ name: Docker Image CI for Ollama UI
 
 on:
   push:
-    branches: [ "main" ]
-    paths: 
-      - ./
+    branches:
+      - 'main'
   pull_request:
-    branches: [ "main" ]
-    paths:
-      - ./
+    types: [opened, reopened]
 
 jobs:
 
