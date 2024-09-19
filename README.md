@@ -42,7 +42,7 @@ async function getData(prompt) {
   }
 }
 
-getData("Mein Name ist Huibu, kannst du dir das für die nächste Frage merken?")
+getData("Where are the five Lagrange points around earth located?")
 
 
 ```
